@@ -11,10 +11,10 @@ class NoviDslEvaluatorTest {
 
   @Test
   def testApply(): Unit = {
-    val ace = NoviDslEvaluator(
+    val ace = NoviDslEvaluator(_configuration=
       """
         |!org.novi.dsl.FalseActivationConfig("False-1") & (org.novi.dsl.FalseActivationConfig("False-2") | org.novi.dsl.TrueActivationConfig("True-3"))
-        |""".stripMargin)
+        |""".stripMargin, plugin_dir = "")
 
     assertThat(ace("Hello")).isTrue
   }
