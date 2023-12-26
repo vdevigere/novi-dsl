@@ -4,6 +4,11 @@
     <groupId>org.novi</groupId>
     <artifactId>novi-dsl</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>core</module>
+        <module>activations</module>
+    </modules>
     <properties>
         <encoding>UTF-8</encoding>
     </properties>
@@ -35,11 +40,6 @@
                     <scope>test</scope>
                 </dependency>
                 <dependency>
-                    <groupId>org.novi</groupId>
-                    <artifactId>core</artifactId>
-                    <version>0.0.1-SNAPSHOT</version>
-                </dependency>
-                <dependency>
                     <groupId>org.scala-lang</groupId>
                     <artifactId>scala3-compiler_3</artifactId>
                     <version>3.3.1</version>
@@ -60,14 +60,7 @@
         </profile>
     </profiles>
     <build>
-        <sourceDirectory>src/main/scala</sourceDirectory>
-        <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
-            </plugin>
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
