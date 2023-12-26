@@ -21,7 +21,7 @@
                 <dependency>
                     <groupId>org.scala-lang</groupId>
                     <artifactId>scala3-library_3</artifactId>
-                    <version>3.3.1-RC1</version>
+                    <version>3.3.1</version>
                 </dependency>
                 <dependency>
                     <groupId>org.slf4j</groupId>
@@ -77,18 +77,6 @@
                         <goals>
                             <goal>compile</goal>
                             <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test-jar</goal>
                         </goals>
                     </execution>
                 </executions>
