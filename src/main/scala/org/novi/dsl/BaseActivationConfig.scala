@@ -2,11 +2,10 @@ package org.novi.dsl
 
 import org.novi.core.activations.BaseActivation
 
-import java.lang
+import java.{lang, util}
 
 
 trait BaseActivationConfig(var configuration: String) extends BaseActivation[String] {
-  def apply(context: String): java.lang.Boolean
 
   def &(that: BaseActivationConfig): AndActivation = AndActivation(this, that, s"( ${this.configuration} & ${that.configuration} )")
 

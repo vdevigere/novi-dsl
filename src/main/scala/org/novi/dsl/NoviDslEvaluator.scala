@@ -6,7 +6,7 @@ import java.io.File
 import java.net.{URL, URLClassLoader}
 import java.{lang, util}
 
-class NoviDslEvaluator(configuration: String = null) extends BaseActivationConfig(configuration) {
+class NoviDslEvaluator(_configuration: String = null) extends BaseActivationConfig(_configuration) {
 
   def this() = {
     this(null)
@@ -27,6 +27,12 @@ class NoviDslEvaluator(configuration: String = null) extends BaseActivationConfi
   private val engine = engineManager.getEngineByName("scala")
 
   override def apply(context: String): java.lang.Boolean = {
+    logger.debug("Evaluating: {}", context)
+    val result = engine.eval(configuration).asInstanceOf[BaseActivationConfig]
+    result(context)
+  }
+
+  override def apply(context: util.Map[String, AnyRef]): lang.Boolean = {
     logger.debug("Evaluating: {}", context)
     val result = engine.eval(configuration).asInstanceOf[BaseActivationConfig]
     result(context)
