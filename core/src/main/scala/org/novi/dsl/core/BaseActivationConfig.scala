@@ -1,8 +1,6 @@
 package org.novi.dsl.core
 
-import org.novi.core.activations.BaseActivation
-
-trait BaseActivationConfig(var configuration: String) extends BaseActivation[String] {
+trait BaseActivationConfig(var configuration: String){
 
   def &(that: BaseActivationConfig): AndActivation = AndActivation(this, that, s"( ${this.configuration} & ${that.configuration} )")
 
@@ -10,9 +8,5 @@ trait BaseActivationConfig(var configuration: String) extends BaseActivation[Str
 
   def unary_! : NotActivation = NotActivation(this, s"!(${this.configuration})")
 
-  override def configuration(configuration: String): BaseActivation[String] = {
-    this.configuration = configuration
-    this
-  }
-
+  def apply(context: String): java.lang.Boolean
 }
