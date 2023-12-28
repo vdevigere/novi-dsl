@@ -1,5 +1,6 @@
 package org.novi.activations.dsl
 
+import org.novi.core.activations.BaseActivation
 import org.novi.core.dsl.DslActivation
 import org.slf4j.LoggerFactory
 
@@ -9,4 +10,6 @@ class FalseActivation(configuration: String) extends DslActivation(configuration
     logger.debug("Always returning false: {}", context)
     false
   }
+
+  override def valueOf(s: String): BaseActivation[String] = FalseActivation(s)
 }
